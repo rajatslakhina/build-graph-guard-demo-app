@@ -273,7 +273,7 @@
 			repositoryURL = "https://github.com/rajatslakhina/build-graph-guard-kit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
+				minimumVersion = 1.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
