@@ -51,7 +51,7 @@ Requires Xcode 16 or later; the project targets iOS 17 and Swift 6.
 Demo.xcodeproj
 └── Demo (app target)
     ├── XCRemoteSwiftPackageReference → github.com/rajatslakhina/build-graph-guard-kit
-    │   requirement: upToNextMajorVersion, minimumVersion 1.1.1
+    │   requirement: upToNextMajorVersion, minimumVersion 1.1.2
     ├── BuildGraphGuard      ← the engine: policy type, sample project files
     └── BuildGraphGuardUI    ← the review screen
 ```
@@ -71,7 +71,7 @@ The tightening is deliberately one that changes a verdict on screen (`maximumMem
 - **This repo's CI** (see the [Actions tab](https://github.com/rajatslakhina/build-graph-guard-demo-app/actions)) runs `xcodebuild -resolvePackageDependencies` and then `xcodebuild build -scheme Demo -destination 'generic/platform=iOS Simulator'` on `macos-15`. That is the cheapest honest substitute for a human opening the project: it proves the remote package genuinely resolves from github.com at its published tag, and that the app compiles against it.
 - The destination is `generic/platform=iOS Simulator`, never a named device. Pinning to `name=iPhone 16,OS=latest` ties the job to whichever simulator *runtimes* happen to be installed on that day's runner image, and they are not guaranteed. A compile check needs no device to exist.
 - `Demo.xcodeproj/project.pbxproj` was checked for balanced braces and parentheses, 24-hex-character object ids, and zero dangling object references — using this project's own `OpenStepPlist` scanner and `PbxprojBridge`, which is a pleasant way to find out the library works.
-- The library repo itself: `swift build -Xswiftc -warnings-as-errors` clean from a wiped `.build`, 114 tests passing, and green CI on Linux and macOS.
+- The library repo itself: `swift build -Xswiftc -warnings-as-errors` clean from a wiped `.build`, 119 tests passing, and green CI on Linux and macOS.
 
 **What was not verified:**
 
